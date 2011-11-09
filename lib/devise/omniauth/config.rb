@@ -33,7 +33,7 @@ module Devise
         elsif options[:require]
           require options[:require]
         else
-          require "omniauth-#{provider}"
+          require "omniauth-#{provider.to_s.sub('_', '-')}"
         end
         find_strategy || autoload_strategy
       end
@@ -43,4 +43,4 @@ module Devise
       end
     end
   end
-end     
+end
